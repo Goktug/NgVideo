@@ -1,0 +1,62 @@
+<!doctype html>
+<html xmlns:ng="http://angularjs.org" ng-app="NgVideo">
+<head>
+
+    <title>NgVideo</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Javascript -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script type="text/javascript" src="libs/angular/angular.js"></script>
+    <script type="text/javascript" src="libs/angular/angular-resource.js"></script>
+    <script type="text/javascript" src="vendor/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="vendor/js/plugin.js"></script>
+    <script type="text/javascript" src="vendor/js/app.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="vendor/css/bootstrap.min.css">
+    <link rel="stylesheet" href="vendor/css/main.css">
+</head>
+<body>
+    <div id="container" ng-controller="AppCtrl">
+    <div class="row">
+        <div id="search" class="span11">
+        <h2>Youtube App with AngularJS and LocalStorage</h2>
+        <form ng-submit="search(query)">
+            <div class="input-append">
+              <input ng-model="query" class="input-xxlarge" type="text" placeholder="what do you want to listen?"><span class="add-on">{{videoCount}}</span>
+              </button><button id="searchBtn" ng-click="search(query)" class="btn" data-loading-text="searching..." type="button">search
+            </div>
+        </form>
+            <button ng-click="playlist.get()" ng-class="{disabled: !isSearch}" class="btn btn-primary">get my playlist</button>
+        </div>
+        <div class="span11">
+        <table ng-show="videoCount" class="table table-striped" ng-cloak>
+            <thead>
+                <tr>
+                    <th style="width: 5%;">#</th>
+                    <th style="width: 95%;">title</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="video in videos">
+                    <td>{{$index + startIndex}}</td>
+                    <td><a class="video" href="http://www.youtube.com/watch?v={{video.id}}" target="_blank">{{video.title}}</a><i ng-show="isSearch" ng-click="playlist.addSong(video)" class="pull-right icon-plus addSong" title="add song to playlist"></i> <i ng-show="!isSearch" ng-click="playlist.deleteSong(video)" class="pull-right icon-minus deleteSong" title="delete song to playlist"> </i><i ng-show="isSearch && playlist.isAdded(video)" class="pull-right icon-star addedSong" title="this video is already at your playlist"></i></td>
+                </tr>
+            </tbody>
+        </table>    
+        </div>
+        <div class="span7">
+            <div ng-hide="!isSearch" ng-show="videoCount > 15" class="pagination" ng-cloak>
+                <ul>
+                    <li><a ng-click="prevPage()" href="#">Prev</a></li>
+                    <li><a ng-click="nextPage()" href="#">Next</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="span7"><a href="http://twitter.com/goktuggumus" target="_blank"><code>Göktuğ Gümüş</code></div>
+    </div>
+    </div>
+</body>
+</html>

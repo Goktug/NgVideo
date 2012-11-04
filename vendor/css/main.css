@@ -1,0 +1,22 @@
+[ng\:cloak], [ng-cloak], .ng-cloak { display: none; }
+
+#container{margin: 10px; width: 870px;}
+.addedSong {opacity: .5;}
+.addSong {opacity: .5; cursor: pointer;}
+.addSong:hover {opacity: 1; 
+-webkit-transition: opacity 1s ease-in;
+-moz-transition: opacity 1s ease-in;
+-ms-transition: opacity 1s ease-in;
+-o-transition: opacity 1s ease-in;
+transition: opacity 1s ease-in;
+}
+
+.deleteSong {opacity: .5; cursor: pointer;}
+.deleteSong:hover {opacity: 1; 
+-webkit-transition: opacity 1s ease-in;
+-moz-transition: opacity 1s ease-in;
+-ms-transition: opacity 1s ease-in;
+-o-transition: opacity 1s ease-in;
+transition: opacity 1s ease-in;
+}
+
