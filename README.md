@@ -1,9 +1,13 @@
-Youtube Search Application with AngularJS
+NgVideo
+=======
+### Youtube Search Application with AngularJS
 
-Demo: http://www.rubixa.com/ngvideo/public
+Demo
+----
+http://www.rubixa.com/ngvideo/public
 
-Dependencies:
-*jQuery
-*Store.js
-*json2.js
-*Twitter Bootstrap
+Dependencies
+------------
+1. Store.js + json2.js
+2. jQuery
+3. Twitter Bootstrap
